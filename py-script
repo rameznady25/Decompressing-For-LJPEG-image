@@ -34,6 +34,6 @@ def Decom_all(path):
         Decom( g , x , y , path)
 
  
-pth = 'C:/Users/Ramez_PC/Downloads/Compressed/13'
+pth = 'C:\Users\BR\cancer\case1226'
 Decom_all(pth)
 
