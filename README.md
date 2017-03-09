@@ -7,7 +7,7 @@ pre-requset: <br />
 2 - anaconda 3 for run python script.<br />
 3 - windows platform.<br /><br />
 also,<br />
-Extra exe Files.<br />
+Three Extra exe Files.<br />
 1 - jpeg.exe<br />
 2 - ddsmraw2pnm.exe<br />
 3 - convert.exe<br />
