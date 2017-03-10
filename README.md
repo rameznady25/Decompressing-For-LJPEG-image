@@ -11,10 +11,10 @@ Three Extra exe Files.<br />
 1 - jpeg.exe<br />
 2 - ddsmraw2pnm.exe<br />
 3 - convert.exe<br />
-add them to "C:\cygwin\bin"
+- You must add them to "C:\cygwin\bin" <br />
 you can download all these files from: http://www.mediafire.com/file/dnodzc3yv3n603f/exe+Files.rar
 <br /><br /><br />
-you must also add "C:\cygwin\usr\bin" to PATH which in environment variables windows 
+- You must also add "C:\cygwin\usr\bin" to PATH which in environment variables windows 
 <br /><br /><br />
 you can my video:<br />
 
