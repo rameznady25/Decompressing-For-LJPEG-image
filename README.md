@@ -12,7 +12,7 @@ Three Extra exe Files.<br />
 2 - ddsmraw2pnm.exe<br />
 3 - convert.exe<br />
 you can download all these files from: http://www.mediafire.com/file/dnodzc3yv3n603f/exe+Files.rar
-<br /><br />
+<br />
 - You must add Three Extra exe File to "C:\cygwin\bin" <br />
 - You must also add "C:\cygwin\usr\bin" to PATH which in environment variables windows 
 <br /><br /><br />
