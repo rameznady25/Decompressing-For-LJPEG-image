@@ -36,9 +36,11 @@ def Decom_all(path):
 
 
 
+
 # Normal path =  'C:\Users\BR\cancer\case1226'
 # updated path = 'C:\\Users\BR\\cancer\\case1226'
 # add backslash 
+
 pth = 'C:\\Users\BR\\cancer\\case1226'
 Decom_all(pth)
 
