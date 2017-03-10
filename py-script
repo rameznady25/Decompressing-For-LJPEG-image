@@ -1,23 +1,24 @@
-
 import os
 import subprocess
 
 def Decom( FileName , x , y , pth):
     os.chdir(r"C:\cygwin\bin")
     pth = pth.translate(str.maketrans('','',':'))
+    pth = pth.translate(str.maketrans('\\','/'))
     done = 'cd /cygdrive/' + pth + '; '
     done += './jpeg.exe -d -s ' + FileName + '; '
     done += './ddsmraw2pnm.exe ' + FileName + '.1 ' + x + ' ' + y + ' lumisys; '
     done += './convert.exe -depth 16 ' + FileName + '.1-ddsmraw2pnm.pnm ' + FileName  + '.png ; '
-    print (done)
-    cmd = ["bash", "-c", done ]
+    #print (done)
+    cmd = ["bash.exe", "-c", done ]
     subprocess.call(cmd)
- 
+
+
 def Decom_all(path):    
     file_list = []
-    for file in [doc for doc in os.listdir(path)
-    if doc.endswith(".LJPEG")]:
-    	file_list.append(file)
+    for file in [doc for doc in os.listdir(path) if doc.endswith(".LJPEG")]:
+        #print(file)
+    	  file_list.append(file)
     
     for i in range(len(file_list)):
         g = (file_list[i])
@@ -33,7 +34,11 @@ def Decom_all(path):
                         break;
         Decom( g , x , y , path)
 
- 
-pth = 'C:\Users\BR\cancer\case1226'
+
+
+# Normal path =  'C:\Users\BR\cancer\case1226'
+# updated path = 'C:\\Users\BR\\cancer\\case1226'
+# add backslash 
+pth = 'C:\\Users\BR\\cancer\\case1226'
 Decom_all(pth)
 
