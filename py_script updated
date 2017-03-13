@@ -1,0 +1,59 @@
+
+
+import os
+import subprocess
+
+
+def Decom( FileName , x , y , pth ,ca):
+    os.chdir(r"C:\cygwin\bin")
+    pth = pth.translate(str.maketrans('','',':'))
+    pth = pth.translate(str.maketrans('\\','/'))
+    done = 'cd /cygdrive/' + pth + '; '
+    done += './jpeg.exe -d -s ./' + ca + '/' + FileName + '; '
+    done += './ddsmraw2pnm.exe ./' + ca + '/' + FileName + '.1 ' + x + ' ' + y + ' lumisys; '
+    done += './convert.exe -depth 16 ./' + ca + '/' + FileName + '.1-ddsmraw2pnm.pnm ./' + ca + '/' + FileName  + '.png ; '
+    #print (done)
+    cmd = ["bash.exe", "-c", done ]
+    subprocess.call(cmd)
+
+
+def Decom_all(path , case):    
+    file_list = []
+    new_path = path + '\\' + case
+    for file in [doc for doc in os.listdir(new_path) if doc.endswith(".LJPEG")]:
+        #print(file)
+    	  file_list.append(file)
+    
+    for i in range(len(file_list)):
+        g = (file_list[i])
+        m = file_list[i].split('.')
+        d = m[0].split('_')
+        d = new_path + '/' + d[0] + '-' + d[1] + '-' + d[2] + '.ics'
+        lines = [line.split() for line in open(d)]
+        lines = sum(lines, [])
+        for i in range(len(lines)):
+            if (m[1] == lines[i]):
+                        x = lines[i+2]
+                        y = lines[i+4] 
+                        break;
+        Decom( g , x , y , path,case)
+
+
+def gen_path(p):
+    file_list1 = []
+    for file in [doc for doc in os.listdir(p) if '.' not in doc]:
+        Decom_all(p ,file)
+        #print(file)
+        #file = pth + '\\' + file
+        #file_list1.append(file)
+        #print(file)
+
+        
+
+# Normal path =  'C:\Users\BR\cancer\case1226'
+# updated path = 'C:\\Users\BR\\cancer\\case1226'
+# add backslash 
+
+pth = 'C:\\Users\\Ramez_PC\\Downloads\\Compressed\\13'
+gen_path(pth)
+
