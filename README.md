@@ -16,6 +16,6 @@ you can download all these files from: http://www.mediafire.com/file/dnodzc3yv3n
 - You must add Three Extra exe File to "C:\cygwin\bin" <br />
 - You must also add "C:\cygwin\usr\bin" to PATH which in environment variables windows 
 <br /><br /><br />
-you can my video: https://www.youtube.com/watch?v=MERU9-K8fPE&t=8s <br />
+you can watch my video: https://www.youtube.com/watch?v=MERU9-K8fPE&t=8s <br />
 
 
