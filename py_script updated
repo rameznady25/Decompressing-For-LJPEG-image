@@ -45,10 +45,11 @@ def gen_path(p):
         Decom_all(p ,file)
 
 
+#---------------------------------------------------------------------------------
+# Normal path =  'C:\Users\BR\cancer\case1226'
+# updated path = 'C:\\Users\BR\\cancer'
+# add backslash 
 
-
-
-
-pth = 'C:\\Users\\Ramez_PC\\Downloads\\Compressed\\13'
+pth = 'C:\\Users\BR\\cancer'
 gen_path(pth)
 
