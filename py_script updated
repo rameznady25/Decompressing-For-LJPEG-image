@@ -43,16 +43,11 @@ def gen_path(p):
     file_list1 = []
     for file in [doc for doc in os.listdir(p) if '.' not in doc]:
         Decom_all(p ,file)
-        #print(file)
-        #file = pth + '\\' + file
-        #file_list1.append(file)
-        #print(file)
 
-        
 
-# Normal path =  'C:\Users\BR\cancer\case1226'
-# updated path = 'C:\\Users\BR\\cancer\\case1226'
-# add backslash 
+
+
+
 
 pth = 'C:\\Users\\Ramez_PC\\Downloads\\Compressed\\13'
 gen_path(pth)
