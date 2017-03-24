@@ -1,0 +1,49 @@
+
+import os
+import scipy
+import numpy
+from statsmodels.compat import scipy
+from PIL import Image
+
+
+def cut(img):
+    print(img)
+    m = img.split("\\")
+    dir_save=m[0]
+    for i in range(1,len(m)-3):
+        dir_save = dir_save+'\\'+m[i]
+    dir_save+='\\'+m[len(m)-3]+"_cut"
+    dir_cut=dir_save+'\\'+m[len(m)-2]
+    if not os.path.exists(dir_save) :
+        os.makedirs(dir_save)
+    if not os.path.exists(dir_cut):
+            os.makedirs(dir_cut)
+    image = scipy.misc.imread(img)
+    image = image.astype(numpy.float32)
+    x,y=image.shape
+    xn = -(x-int(x/250)*250)+250
+    yn = -(y-int(y/250)*250)+250
+    imnew = numpy.zeros(shape=(x+xn, y+yn))
+    for i in range(x):
+        for j in range(int(y)):
+            imnew[i][j]=image[i][j]
+    for i in range(int(x/250)+1):
+        for j in range(int(y / 250)+1):
+            a = numpy.zeros(shape=(250,250))
+            for ii,iii in zip(range(i*250,(i+1)*250),range(0,250)):
+                for jj,jjj in zip(range(j*250,(j+1)*250),range(0,250)):
+                         a[iii][jjj] = imnew[ii][jj]
+            scipy.misc.imsave(dir_cut + "\\" + m[len(m)-1].split('.png')[0]+str(i)+str(j)+'.png', a)
+
+
+def get_path(p):
+    for file in [doc for doc in os.listdir(p) if '.' not in doc]:
+        new_path = p + '\\' + file
+        for file in [doc for doc in os.listdir(new_path) if doc.endswith(".png")]:
+            cut(new_path + '\\' + file)
+
+
+
+#path like that
+path = 'E:\\University\\level4\\gp\\DDSM\\Cancer cases\\cancer_01'
+get_path(path)
